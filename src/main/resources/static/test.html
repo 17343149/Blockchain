@@ -1,0 +1,21 @@
+<table id="demo" lay-filter="test"></table>
+									<script src="../layui.js"></script>
+									<script th:inline="none">
+									layui.use('table', function(){
+									var table = layui.table;
+									
+								
+									table.render({
+										elem: '#demo'
+										,height: 200
+										,url: 'http://localhost:8080/user/select/result' 
+										,page: false 
+										,cols: [[
+										{field: 'name', title: '用户名', width:40, sort: true, fixed: 'left'}
+										,{field: 'count', title: '金额', width:40, sort: true}
+										,{field: 'oweName', title: '欠款企业', width:40, sort: true}
+										]]
+									});
+									
+									});
+									</script>

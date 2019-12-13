@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>User</title>
+  <link rel="stylesheet" type="text/css" href="css/layui.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">用户功能</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item"><a href="">控制台</a></li>
+      <li class="layui-nav-item"><a href="">商品管理</a></li>
+      <li class="layui-nav-item"><a href="">用户</a></li>
+      <li class="layui-nav-item">
+        <a href="javascript:;">其它系统</a>
+        <dl class="layui-nav-child">
+          <dd><a href="">邮件管理</a></dd>
+          <dd><a href="">消息管理</a></dd>
+          <dd><a href="">授权管理</a></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item"><img src="img/user.png" class="layui-nav-img"></li>
+      <li class="layui-nav-item">
+        <a href="javascript:;" name="username" th:text=${username}></a>
+      </li>
+      <li class="layui-nav-item">
+          <a href="javascript:;" th:text="'Exit'"></a>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">主页</a>
+          <dl class="layui-nav-child">
+            <form action="user/select" method="POST" name="form" id="form1" novalidate="">
+              <dd><input type="hidden" name="username" th:value=${username}/></dd>
+              <dd><a onclick="document:form1.submit()">查询自己相关记录</a></dd>
+            </form>
+            <form action="user/buy" method="POST" name="form" id="form2" novalidate="">
+              <dd><input type="hidden" name="username" th:value=${username}/></dd>
+              <dd><a onclick="document:form2.submit()">赊账(购买)</a></dd>
+            </form>
+            <form action="user/buyWithLoan" method="POST" name="form" id="form3" novalidate="">
+              <dd><input type="hidden" name="username" th:value=${username}/></dd>
+              <dd><a onclick="document:form3.submit()">转移部分欠款(购买)</a></dd>
+            </form>
+            <form action="user/loanWithBank" method="POST" name="form" id="form4" novalidate="">
+              <dd><input type="hidden" name="username" th:value=${username}/></dd>
+              <dd><a onclick="document:form4.submit()">向银行贷款</a></dd>
+            </form>
+            <form action="user/payMoney" method="POST" name="form" id="form5" novalidate="">
+              <dd><input type="hidden" name="username" th:value=${username}/></dd>
+              <dd><a onclick="document:form5.submit()">还钱</a></dd>
+            </form>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">解决方案</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">列表一</a></dd>
+            <dd><a href="javascript:;">列表二</a></dd>
+            <dd><a href="">超链接</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="">云市场</a></li>
+        <li class="layui-nav-item"><a href="">发布商品</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>欢迎您的使用, 请点击左侧按钮选择功能!</legend>
+          </fieldset>
+           
+          <img src="img/bitcoin.jpeg">
+          <img src="img/block.jpeg">
+          <div style="margin-top: 15px;">
+           
+          <!-- 示例-970 -->
+          <ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px" data-ad-client="ca-pub-6111334333458862" data-ad-slot="3820120620"></ins>
+            
+          </div>
+    </div>
+  </div>
+  
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © layui.com - 底部固定区域
+  </div>
+</div>
+<script src="layui.js"></script>
+<script>
+//JavaScript代码区域
+layui.use('element', function(){
+  var element = layui.element;
+  
+});
+</script>
+</body>
+</html>
